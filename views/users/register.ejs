@@ -1,0 +1,35 @@
+<% include ../header %>
+
+<div class="container">
+
+    <form class="form" role="form" method="POST" action="">
+
+    	<h2 class="form-heading">Registro</h2>
+    	<% if(messageusername.length) { %>
+    		<div class="alert alert-danger" role="alert"><%= messageusername %></div>
+		<% } %>
+
+    	<% if(messagemail.length) { %>
+    		<div class="alert alert-danger" role="alert"><%= messagemail %></div>
+		<% } %>
+
+    	<% if(messagepass.length) { %>
+    		<div class="alert alert-danger" role="alert"><%= messagepass %></div>
+		<% } %>
+
+		<% if(messageregister.length) { %>
+    		<div class="alert alert-danger" role="alert"><%= messageregister %></div>
+		<% } %>
+
+
+        <input type="text" class="form-control" placeholder="Username" name="username" autofocus>
+        <input type="text" class="form-control" placeholder="Email" name="email" >
+        <input type="password" class="form-control" placeholder="Password" name="password" >
+        <input type="password" class="form-control" placeholder="Repetir password" name="passwordrepeat" >
+        
+        <br>
+        <button class="btn btn-lg btn-info btn-block" type="submit">Registrarse</button>
+    </form>
+</div>
+
+<% include ../footer %>

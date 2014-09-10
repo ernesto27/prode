@@ -1,0 +1,22 @@
+<% include ../header %>
+
+<div class="container">
+    <form class="form" role="form" method="POST" action="">
+    	<h2 class="form-heading">Login</h2>
+		
+		<% if(messagelogin.length) { %>
+    		<div class="alert alert-success" role="alert"><%= messagelogin %></div>
+		<% } %>
+
+		<% if(loginfalse.length) { %>
+    		<div class="alert alert-danger" role="alert"><%= loginfalse %></div>
+		<% } %>
+
+        <input type="text" class="form-control" placeholder="Email" name="email" >
+        <input type="password" class="form-control" placeholder="Password" name="password" >
+        <br>
+        <button class="btn btn-lg btn-info btn-block" type="submit">Ingresar</button>
+    </form>
+</div>
+
+<% include ../footer %>

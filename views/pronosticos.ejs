@@ -1,0 +1,78 @@
+<% include header %>
+
+
+	<div class="container" style="margin-top:60px">
+		<h2>Pronosticos</h2>
+		
+		<div class="row">
+	
+			<div class="col-md-6 wrapper-forecast">
+
+				<select class="form-control select-fecha" style="">
+					<option>Selecciona una fecha</option>
+					<%
+						fechas.forEach(function(fecha){
+					%>
+				  	<option value="<%= fecha.number %>"><%= fecha.number %></option>
+				  	<%
+						});
+					%>
+				</select>
+				
+				<form action="/forecast/save" method="POST" class="form-forecast">
+				<table class="table table-striped table-bordered">
+			    	<thead>
+			        	<tr>
+			          		<th>Local</th>
+			          		<th style="width:70px">Empate</th>
+			          		<th>Visitante</th>
+			        	</tr>
+			      	</thead>
+			      	<tbody>
+			      		
+			      		<input type="hidden" value="<%= fechaNumero %>" name="fechaNumero">
+			      		<%
+							matches.forEach(function(match){
+						%>
+				        	<tr>
+				          		<td style="width:40%">
+				          			<!-- <input type="hidden" name="fecha" value="<%= match.id %>"> -->
+				          			<input type="radio" value="L" name="match-<%= match.id %>">
+				          			<img src="/images/<%=: match.team_local_name | replace:" ", "" | downcase %>.png"> 
+				          			<span><%=: match.team_local_name %></span>
+				          		</td>
+
+				          		<td>
+				          			<input type="radio" style="margin-left:18px;" value="E" name="match-<%= match.id %>">
+				          		</td>
+
+				          		<td>
+				          			<img src="/images/<%=: match.team_visitor_name | replace:" ", ""  | downcase %>.png">
+				          			<span><%= match.team_visitor_name %></span>
+				          			<input type="radio" class="radio-visitor pull-right"
+				          				   value="V" name="match-<%= match.id %>">
+				          		</td>
+				        	</tr>
+			        	<%
+							});
+						%>
+			      </tbody>
+			    </table>
+			    <button type="submit" class="btn btn-info btn-default" id="send-forecast">Guardar pronostico</button>
+				</form>
+
+				<div class="alert alert-dismissable alert-success" style="margin-top:15px;display:none" id="success-message-forecast">
+					El pronostico se guardo exitosamente.
+				</div>
+			</div>
+
+
+			<!-- RANKING DE USUARIOS -->
+			<div class="col-md-4">
+				<h3>Todo news</h3>
+			</div>
+
+		</div>
+	</div>
+
+<% include footer %>

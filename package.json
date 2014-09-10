@@ -1,0 +1,21 @@
+{
+  "name": "Prode",
+  "version": "0.1.0",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "dependencies": {
+    "express": "3.x.x",
+    "ejs": "~0.8.4",
+    "passport": "latest",
+    "passport-facebook": "*",
+    "sequelize": "*",
+    "pg": "*",
+    "q" : "*",
+    "bcrypt-nodejs": "*",
+    "connect-flash" : "*"
+  },
+  "devDependencies": {
+    "nodemon": "latest"
+  }
+}
